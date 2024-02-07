@@ -37,6 +37,7 @@ export default function Signup() {
                 type="text"
                 className="border-2 rounded w-full p-1"
                 placeholder="Enter your first name"
+                required onChange={(event) => setFirstName(event.target.value)}
               />
             </div>
             <div>
@@ -47,6 +48,7 @@ export default function Signup() {
                 type="text"
                 className="border-2 rounded w-full p-1"
                 placeholder="Enter your Last name"
+                required onChange={(event)=> setLastName(event.target.value)}
               />
             </div>
             <div>
@@ -57,6 +59,7 @@ export default function Signup() {
                 type="text"
                 className="border-2 rounded w-full p-1"
                 placeholder="Enter your Mail"
+                 required onChange={(event)=> setEmail(event.target.value)}
               />
             </div>
             <div>
@@ -67,6 +70,7 @@ export default function Signup() {
                 type="text"
                 className="border-2 rounded w-full p-1"
                 placeholder="Enter your password"
+                required onChange={(event) => setPassword(event.target.value)}
               />
             </div>
             <div className="flex flex-row justify-center">

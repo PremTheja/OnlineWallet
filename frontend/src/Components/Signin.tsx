@@ -29,6 +29,7 @@ export default function Signin() {
                 type="text"
                 className="border-2 rounded w-full p-1"
                 placeholder="Enter your Mail"
+                required onChange={(event) => setEmail(event.target.value)}
               />
             </div>
             <div>
@@ -39,6 +40,7 @@ export default function Signin() {
                 type="text"
                 className="border-2 rounded w-full p-1"
                 placeholder="Enter your password"
+                required onChange={(event) => setPassword(event.target.value)}
               />
             </div>
             <div className="flex flex-row justify-center">
