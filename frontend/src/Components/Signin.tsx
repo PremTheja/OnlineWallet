@@ -1,9 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Signin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email , setEmail] = useState("");
+  const [password , setPassword] = useState("");
+  const navigate = useNavigate();
+  
+  async function handleClick()
+  {
+      const resp = await axios.post("http://localhost:3000/api/v1/user/signin" , {
+          username:email,
+          password:password
+      })
+
+      if(resp.data.message === "Login successfull")
+      {
+          localStorage.setItem('token',resp.data.token );
+          navigate("/dashboard");
+      }
+  }
+
   return (
     <div>
       <div className="flex flex-row justify-center">
@@ -44,7 +61,7 @@ export default function Signin() {
               />
             </div>
             <div className="flex flex-row justify-center">
-              <button className="bg-black text-white rounded w-full p-1 mt-3">
+              <button className="bg-black text-white rounded w-full p-1 mt-3" onClick={handleClick}>
                 Sign Up
               </button>
             </div>
